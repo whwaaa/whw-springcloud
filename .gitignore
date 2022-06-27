@@ -1,0 +1,5 @@
+/consumer-demo/consumer-demo.iml
+/consumer-demo/target/
+/eureka-server/target/
+/user-service/target/
+/.idea/
