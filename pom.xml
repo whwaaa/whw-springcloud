@@ -8,6 +8,11 @@
     <artifactId>whw-springcloud</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>user-service</module>
+        <module>consumer-demo</module>
+        <module>eureka-server</module>
+    </modules>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -23,6 +28,7 @@
         <mysql.version>8.0.25</mysql.version>
     </properties>
 
+    <!-- 依赖的声明，并不实现引入, 子工程引入依赖才会向上寻找版本 -->
     <dependencyManagement>
         <dependencies>
             <!-- springCloud -->
@@ -48,21 +54,27 @@
         </dependencies>
     </dependencyManagement>
 
+    <!-- 引入依赖, 所有子工程都会引入 -->
     <dependencies>
         <dependency>
             <!-- lombok通过注解消除实际开发中的样板式代码 get/set/重写等 -->
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
+        <!-- SpringBoot 热部署组件 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+        </dependency>
     </dependencies>
 
-    <build>
-        <plugins>
-            <plugin>
-                <!-- maven打包的命令，项目会被打包成一个可以直接运行的jar包 -->
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
+<!--    <build>-->
+<!--        <plugins>-->
+<!--            <plugin>-->
+<!--                &lt;!&ndash; maven打包的命令，项目会被打包成一个可以直接运行的jar包 &ndash;&gt;-->
+<!--                <groupId>org.springframework.boot</groupId>-->
+<!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
+<!--            </plugin>-->
+<!--        </plugins>-->
+<!--    </build>-->
 </project>
