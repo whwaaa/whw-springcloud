@@ -10,7 +10,7 @@ public interface UserClient {
 
     //String url = "http://user-service/user/" + id;
     @GetMapping("/user/{id}")
-    public User queryById(@PathVariable Long id);
+    public String queryById(@PathVariable Long id);
 }
 
 

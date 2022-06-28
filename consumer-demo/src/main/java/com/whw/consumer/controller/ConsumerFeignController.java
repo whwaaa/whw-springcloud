@@ -16,7 +16,7 @@ public class ConsumerFeignController {
     private UserClient userClient;
 
     @GetMapping("/{id}")
-    public User queryById(@PathVariable Long id) {
+    public String queryById(@PathVariable Long id) {
         return userClient.queryById(id);
     }
 
