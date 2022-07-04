@@ -1,0 +1,29 @@
+server:
+  port: ${port:9091}
+
+spring:
+  application:
+    name: user-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/springcloud
+    username: root
+    password: zUC8ytsEEh7gCj
+
+mybatis:
+  # 在Mybatis的mapper.xml文件中resultType的type或者paramterType会返回自定义entity,此时可以用全类名名来指定这些实体
+  type-aliases-package: com.whw.pojo
+
+eureka:
+  client:
+    service-url:
+      # eureka 服务地址, 如果是集群的话, 需要指定其他集群eureka地址
+      defaultZone: http://localhost:10086/eureka
+  instance:
+    # 更倾向于使用ip而不是主机名,默认是主机名
+    prefer-ip-address: true
+    # ip配置
+    ip-address: 127.0.0.1
+    # 服务失效时间, 默认90秒
+    lease-expiration-duration-in-seconds: 5
+    # 服务续约(renew)的间隔，默认为30秒
+    lease-renewal-interval-in-seconds: 5
